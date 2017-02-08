@@ -2,9 +2,9 @@
 
 # Phaser Debug Timer ⏱
 
-```javascript
-// Default arguments are shown
+Default arguments are shown. The default timer is the master timer, [game.time.events](http://phaser.io/docs/2.6.2/Phaser.Time.html#events).
 
+```javascript
 // Show duration since timer started:
 game.debug.timerElapsed(timer = this.game.time.events, x, y, label = timer.name)
 
