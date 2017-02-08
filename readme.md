@@ -1,3 +1,5 @@
+![Screenshot](https://samme.github.io/phaser-debug-timer/screenshot.png)
+
 # Phaser Debug Timer ⏱
 
 ```javascript
