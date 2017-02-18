@@ -2,6 +2,8 @@
 
 {SECOND} = Phaser.Timer
 
+{abs} = Math
+
 COLOR_RUNNING        = '#2cc631'
 COLOR_PAUSED         = '#fed609'
 COLOR_EXPIRED        = '#fc6f16'
@@ -21,12 +23,14 @@ Phaser.Utils.Debug::timerElapsed = (timer = this.game.time.events, x, y, label) 
 
   {ms, seconds} = timer
 
-  @text (if label then "#{label}: " else "") + (if seconds < 1 then "#{ms}ms" else "#{~~seconds}s"), x, y, timerColor(timer), @font
+  @text (if label then "#{label}: " else "") +
+        (if abs(seconds) < 1 then "#{ms}ms" else "#{~~seconds}s"),
+        x, y, timerColor(timer), @font
 
   return
 
 Phaser.Utils.Debug::timerName = (timer) ->
-  if timer is @game.time.events then "game.time.events" else null
+  if timer is @game.time.events then "game.time.events" else timer.name
 
 Phaser.Utils.Debug::timerNextEvent = (timer = this.game.time.events, x, y, width = 100, height = 20, label) ->
   label ?= @timerName timer
