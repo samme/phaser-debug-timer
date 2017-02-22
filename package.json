@@ -24,7 +24,7 @@
   "scripts": {
     "start": "coffeebar --watch .",
     "preversion": "eslint .",
-    "publish": "np --no-cleanup"
+    "pub": "np --no-cleanup"
   },
   "keywords": [
     "phaser",
