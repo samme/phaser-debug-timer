@@ -1,7 +1,9 @@
 ![Screenshot](https://samme.github.io/phaser-debug-timer/screenshot.png)
 
-Phaser Debug Timer ⏱
-==================
+[Demo](https://samme.github.io/phaser-debug-timer/)
+
+Use ⏱
+---
 
 Default arguments are shown. The default timer is the master timer, [game.time.events](http://phaser.io/docs/2.6.2/Phaser.Time.html#events).
 
