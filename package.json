@@ -23,6 +23,12 @@
   "homepage": "https://github.com/samme/phaser-debug-timer#readme",
   "scripts": {
     "start": "coffeebar --watch .",
-    "preversion": "eslint ."
-  }
+    "prepublish": "eslint .",
+    "publish": "np --no-cleanup"
+  },
+  "keywords": [
+    "phaser",
+    "phaser-debug"
+  ],
+  "author": "samme"
 }
