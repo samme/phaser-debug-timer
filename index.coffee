@@ -10,6 +10,15 @@ COLOR_EXPIRED        = '#fc6f16'
 COLOR_PENDING_DELETE = '#fb2729'
 COLOR_OTHER          = '#999999'
 
+_rect = new Phaser.Rectangle
+
+drawRect = (debug, x, y, width, height, offset, color, filled) ->
+  _rect
+    .setTo x, y, width, height
+    .offsetPoint offset
+  debug.rectangle _rect, color, filled
+  return
+
 timerColor = (timer) ->
   switch
     when timer.paused  then return COLOR_PAUSED
@@ -46,8 +55,6 @@ Phaser.Utils.Debug::timerNextEvent = (timer = this.game.time.events, x, y, width
 
   return
 
-_rect = new Phaser.Rectangle
-
 Phaser.Utils.Debug::timerEvent = (event, x, y, width = 100, height = 20, label = event.name) ->
   now = event.timer._now
   color = timerColor event.timer
@@ -57,8 +64,7 @@ Phaser.Utils.Debug::timerEvent = (event, x, y, width = 100, height = 20, label =
   if event.pendingDelete
     rectColor = textColor = COLOR_PENDING_DELETE
 
-  _rect.setTo x, y, ~~((event.tick - now) * width / SECOND), height
-  @geom _rect, rectColor
+  drawRect this, x, y, ~~((event.tick - now) * width / SECOND), height, @game.camera, rectColor
 
   if label
     @text label, x, y + ~~(0.5 * height), textColor, @font
